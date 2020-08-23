@@ -6,6 +6,7 @@ import Home from "./components/screens/Home";
 import Login from "./components/screens/Login";
 import Profile from "./components/screens/Profile";
 import Signup from "./components/screens/Signup";
+import CreatePost from "./components/screens/CreatePost";
 import "./App.less";
 import { Layout } from "antd";
 const {  Content } = Layout;
@@ -13,12 +14,14 @@ const {  Content } = Layout;
 function App() {
   return (
     <BrowserRouter>
-    <>
     <NavBar />
       <Layout>
         <Content>
           <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path="/createpost" >
+            <CreatePost />
           </Route>
           <Route path="/login">
             <Login />
@@ -31,7 +34,6 @@ function App() {
           </Route>
         </Content>
       </Layout>
-      </>
     </BrowserRouter>
   );
 }
