@@ -1,16 +1,36 @@
 import React  from 'react'
 import {Link} from 'react-router-dom'
+import { Menu } from 'antd';
 
-const NavBar = ()=> {
-  return (<nav>
-    <div className="nav-wrapper white" >
-      <a href="#" className="brand-logo">Dakua</a>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/signup">Sign Up</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
-      </ul>
-    </div>
-    </nav>)
-}
+  class NavBar extends React.Component {
+    state = {
+      current: 'mail',
+    };
+  
+    handleClick = e => {
+      console.log('click ', e);
+      this.setState({ current: e.key });
+    };
+  
+    render() {
+      const { current } = this.state;
+      return (
+        <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" >
+          
+
+          <Link to="/login" className="brand-logo">Dakua</Link>
+          <Menu.Item key="mail" class="right-alligned">
+          
+          <Link to="/login">Login</Link>
+          </Menu.Item>
+          <Menu.Item key="app"  class="right-alligned">
+            <Link to="/signup">Sign up</Link>
+          </Menu.Item>
+           <Menu.Item key="alipay"  class="right-alligned">
+           <Link to="/profile">Profile</Link>
+          </Menu.Item>
+        </Menu>
+      );
+    }
+  }
 export default NavBar
