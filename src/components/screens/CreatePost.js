@@ -3,7 +3,6 @@ import {
   Form,
   Input,
   Button,
-  Radio,
   Upload
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
